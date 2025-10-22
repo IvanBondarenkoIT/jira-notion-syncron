@@ -1,0 +1,63 @@
+version: '3.9'
+
+services:
+  jira-notion-sync:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jira-notion-sync
+    image: jira-notion-sync:latest
+    restart: unless-stopped
+    
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=INFO
+    
+    env_file:
+      - .env
+    
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+    
+    networks:
+      - sync-network
+    
+    # Override command for development
+    # command: python -m src.presentation.cli.main sync --continuous
+
+  # Development service with hot reload
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jira-notion-sync-dev
+    image: jira-notion-sync:dev
+    
+    environment:
+      - ENVIRONMENT=development
+      - LOG_LEVEL=DEBUG
+    
+    env_file:
+      - .env
+    
+    volumes:
+      - ./src:/app/src
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+      - ./tests:/app/tests
+    
+    networks:
+      - sync-network
+    
+    command: python -m pytest tests/ -v
+    
+    profiles:
+      - dev
+
+networks:
+  sync-network:
+    driver: bridge
+

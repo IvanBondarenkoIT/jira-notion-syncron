@@ -1,0 +1,41 @@
+# Development Dependencies
+-r requirements.txt
+
+# Code Quality
+black==24.4.2
+isort==5.13.2
+flake8==7.0.0
+pylint==3.1.0
+mypy==1.10.0
+autopep8==2.1.0
+
+# Testing
+pytest==8.2.0
+pytest-cov==5.0.0
+pytest-asyncio==0.23.6
+pytest-mock==3.14.0
+pytest-xdist==3.6.1
+coverage==7.5.0
+faker==25.0.0
+
+# Pre-commit
+pre-commit==3.7.0
+
+# Documentation
+sphinx==7.3.7
+sphinx-rtd-theme==2.0.0
+sphinx-autodoc-typehints==2.1.0
+
+# Type stubs
+types-requests==2.32.0.0
+types-PyYAML==6.0.12.20240311
+pandas-stubs==2.2.2.240514
+
+# Debugging
+ipython==8.23.0
+ipdb==0.13.13
+
+# Security
+bandit==1.7.8
+safety==3.1.0
+

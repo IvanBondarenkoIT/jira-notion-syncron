@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": "user_001",
+      "name": "Саша",
+      "full_name": "Александр",
+      "email": "sasha@company.com",
+      "department": "marketing",
+      "role": "marketing_specialist",
+      "jira_account_id": "",
+      "notion_user_id": "",
+      "active": true,
+      "hire_date": "2024-01-15",
+      "notes": ""
+    },
+    {
+      "id": "user_002",
+      "name": "Настя",
+      "full_name": "Анастасия",
+      "email": "nastya@company.com",
+      "department": "marketing",
+      "role": "marketing_specialist",
+      "jira_account_id": "",
+      "notion_user_id": "",
+      "active": true,
+      "hire_date": "2024-02-01",
+      "notes": ""
+    },
+    {
+      "id": "user_003",
+      "name": "Иван",
+      "full_name": "Иван",
+      "email": "ivan@company.com",
+      "department": "hr",
+      "role": "hr_specialist",
+      "jira_account_id": "",
+      "notion_user_id": "",
+      "active": true,
+      "hire_date": "2024-01-10",
+      "notes": ""
+    },
+    {
+      "id": "user_004",
+      "name": "Директор",
+      "full_name": "Директор Компании",
+      "email": "director@company.com",
+      "department": "management",
+      "role": "director",
+      "jira_account_id": "",
+      "notion_user_id": "",
+      "active": true,
+      "hire_date": "2023-01-01",
+      "notes": "Руководитель компании, доступ ко всем проектам"
+    }
+  ],
+  "metadata": {
+    "version": "1.0",
+    "last_updated": "2024-10-21",
+    "description": "Шаблон для управления пользователями. Скопируйте этот файл в users.json и заполните реальными данными."
+  }
+}
+

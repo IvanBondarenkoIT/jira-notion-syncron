@@ -1,0 +1,138 @@
+# Конфигурация отделов и их структуры
+
+departments:
+  marketing:
+    name: "Маркетинг"
+    name_en: "Marketing"
+    description: "Отдел маркетинга и продвижения"
+    jira_board_id: ""  # ID доски в Jira
+    notion_database_id: ""  # ID базы данных в Notion
+    
+    members:
+      - sasha
+      - nastya
+    
+    workflow:
+      - "Backlog"
+      - "To Do"
+      - "In Progress"
+      - "Review"
+      - "Done"
+    
+    task_types:
+      - "Контент"
+      - "SMM"
+      - "Реклама"
+      - "Аналитика"
+      - "Дизайн"
+    
+    sprint_settings:
+      duration_days: 7
+      start_day: "monday"
+      planning_day: "monday"
+      review_day: "friday"
+
+  hr:
+    name: "HR"
+    name_en: "Human Resources"
+    description: "Отдел кадров и рекрутинга"
+    jira_board_id: ""
+    notion_database_id: ""
+    
+    members:
+      - ivan
+    
+    workflow:
+      - "Backlog"
+      - "To Do"
+      - "In Progress"
+      - "Review"
+      - "Done"
+    
+    task_types:
+      - "Рекрутинг"
+      - "Онбординг"
+      - "Обучение"
+      - "Документы"
+      - "Корпоратив"
+    
+    sprint_settings:
+      duration_days: 7
+      start_day: "monday"
+      planning_day: "monday"
+      review_day: "friday"
+
+  management:
+    name: "Управление"
+    name_en: "Management"
+    description: "Руководство компании"
+    jira_board_id: ""
+    notion_database_id: ""
+    
+    members:
+      - director
+    
+    workflow:
+      - "Backlog"
+      - "To Do"
+      - "In Progress"
+      - "Done"
+    
+    task_types:
+      - "Стратегия"
+      - "Планирование"
+      - "Встречи"
+      - "Решения"
+    
+    sprint_settings:
+      duration_days: 7
+      start_day: "monday"
+      planning_day: "monday"
+      review_day: "friday"
+
+# Настройки приоритетов задач
+priorities:
+  critical:
+    name: "Критичная"
+    jira_priority_id: "1"
+    color: "#FF0000"
+  
+  high:
+    name: "Высокая"
+    jira_priority_id: "2"
+    color: "#FF6B00"
+  
+  medium:
+    name: "Средняя"
+    jira_priority_id: "3"
+    color: "#FFB800"
+  
+  low:
+    name: "Низкая"
+    jira_priority_id: "4"
+    color: "#00B8D9"
+
+# Роли пользователей
+roles:
+  director:
+    name: "Директор"
+    permissions:
+      - "view_all"
+      - "edit_all"
+      - "manage_users"
+      - "manage_sprints"
+  
+  marketing_specialist:
+    name: "Специалист по маркетингу"
+    permissions:
+      - "view_own_department"
+      - "edit_own_tasks"
+      - "create_tasks"
+  
+  hr_specialist:
+    name: "HR специалист"
+    permissions:
+      - "view_own_department"
+      - "edit_own_tasks"
+      - "create_tasks"
+
