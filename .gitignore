@@ -48,6 +48,9 @@ logs/
 data/raw/*
 data/processed/*
 data/archive/*
+data/models/*
+data/input/videos/*
+data/notion_export/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/archive/.gitkeep
