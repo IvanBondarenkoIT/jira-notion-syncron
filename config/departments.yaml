@@ -1,16 +1,16 @@
-# Конфигурация отделов и их структуры
+# Конфигурация отделов компании
 
 departments:
   marketing:
     name: "Маркетинг"
     name_en: "Marketing"
     description: "Отдел маркетинга и продвижения"
-    jira_board_id: ""  # ID доски в Jira
-    notion_database_id: ""  # ID базы данных в Notion
+    jira_board_id: "1"  # KAN board - обновите если другой
+    notion_database_id: ""  # Заполните из Notion
     
     members:
-      - sasha
-      - nastya
+      - user_001  # Саша
+      - user_002  # Настя
     
     workflow:
       - "Backlog"
@@ -27,6 +27,37 @@ departments:
       - "Дизайн"
     
     sprint_settings:
+      duration_days: 7  # Недельные спринты
+      start_day: "monday"
+      planning_day: "monday"
+      review_day: "friday"
+
+  it:
+    name: "IT"
+    name_en: "IT Department"
+    description: "IT отдел и разработка"
+    jira_board_id: ""  # Заполните ID доски для IT
+    notion_database_id: ""
+    
+    members:
+      - user_003  # Иван
+    
+    workflow:
+      - "Backlog"
+      - "To Do"
+      - "In Progress"
+      - "Code Review"
+      - "Testing"
+      - "Done"
+    
+    task_types:
+      - "Разработка"
+      - "Баг"
+      - "Тех.долг"
+      - "Инфраструктура"
+      - "Документация"
+    
+    sprint_settings:
       duration_days: 7
       start_day: "monday"
       planning_day: "monday"
@@ -35,12 +66,12 @@ departments:
   hr:
     name: "HR"
     name_en: "Human Resources"
-    description: "Отдел кадров и рекрутинга"
-    jira_board_id: ""
+    description: "HR отдел и рекрутинг"
+    jira_board_id: ""  # Заполните ID доски для HR
     notion_database_id: ""
     
     members:
-      - ivan
+      - user_004  # Нини
     
     workflow:
       - "Backlog"
@@ -66,11 +97,12 @@ departments:
     name: "Управление"
     name_en: "Management"
     description: "Руководство компании"
-    jira_board_id: ""
+    jira_board_id: ""  # Заполните ID доски
     notion_database_id: ""
     
     members:
-      - director
+      - user_005  # Александр (Директор)
+      - user_000  # DimKava (общий аккаунт)
     
     workflow:
       - "Backlog"
@@ -83,6 +115,7 @@ departments:
       - "Планирование"
       - "Встречи"
       - "Решения"
+      - "Контроль"
     
     sprint_settings:
       duration_days: 7
@@ -95,21 +128,25 @@ priorities:
   critical:
     name: "Критичная"
     jira_priority_id: "1"
+    jira_priority_name: "Highest"
     color: "#FF0000"
   
   high:
     name: "Высокая"
     jira_priority_id: "2"
+    jira_priority_name: "High"
     color: "#FF6B00"
   
   medium:
     name: "Средняя"
     jira_priority_id: "3"
+    jira_priority_name: "Medium"
     color: "#FFB800"
   
   low:
     name: "Низкая"
     jira_priority_id: "4"
+    jira_priority_name: "Low"
     color: "#00B8D9"
 
 # Роли пользователей
@@ -121,6 +158,7 @@ roles:
       - "edit_all"
       - "manage_users"
       - "manage_sprints"
+      - "manage_projects"
   
   marketing_specialist:
     name: "Специалист по маркетингу"
@@ -128,6 +166,15 @@ roles:
       - "view_own_department"
       - "edit_own_tasks"
       - "create_tasks"
+      - "view_reports"
+  
+  developer:
+    name: "Разработчик"
+    permissions:
+      - "view_own_department"
+      - "edit_own_tasks"
+      - "create_tasks"
+      - "code_review"
   
   hr_specialist:
     name: "HR специалист"
@@ -135,4 +182,26 @@ roles:
       - "view_own_department"
       - "edit_own_tasks"
       - "create_tasks"
+      - "manage_candidates"
 
+# Настройки спринтов (общие)
+sprint_defaults:
+  duration_days: 7  # Недельные спринты
+  start_day: "monday"
+  planning_time: "10:00"
+  review_time: "16:00"
+  retrospective_time: "17:00"
+
+# Email уведомления (опционально)
+notifications:
+  sprint_start:
+    enabled: false
+    recipients: ["director"]
+  
+  sprint_end:
+    enabled: false
+    recipients: ["director"]
+  
+  overdue_tasks:
+    enabled: false
+    recipients: ["assignee", "director"]
